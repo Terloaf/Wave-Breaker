@@ -5,20 +5,26 @@ using UnityEngine.Rendering;
 
 public class Flames : MonoBehaviour
 {
-    private Transform target;
+    public Transform target;
+    private SpriteRenderer sprite;
     void Start()
     {
-
+        sprite = GetComponent<SpriteRenderer>();
     }
     void Update()
     {
-        if (target == null)
+        
+        transform.position = target.position;
+        transform.rotation = target.rotation;
+
+        if(transform.rotation.z <= 0)
         {
-
-            Destroy(gameObject);
-            return;
+            sprite.sortingOrder = 1;
         }
-
+        if (transform.rotation.z >= 0)
+        {
+           sprite.sortingOrder = -1;
+        }
 
     }
 

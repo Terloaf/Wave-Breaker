@@ -23,7 +23,7 @@ public class ObjectPooling : MonoBehaviour
 
         for(int i = 0; i < unitToPool.Length; i++)
         {
-            for(int j = 0; j <amountToPool: j++)
+            for(int j = 0; j <amountToPool; j++)
             {
                 GameObject unit = Instantiate(unitToPool[i]);
                 unit.SetActive(false);

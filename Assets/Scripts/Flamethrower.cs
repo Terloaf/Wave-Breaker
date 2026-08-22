@@ -16,7 +16,7 @@ public class Flamethrower : MonoBehaviour
     public string enemyTag = "Enemy";
 
     public Transform firePoint;
-
+    public Flames flame;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -27,10 +27,18 @@ public class Flamethrower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Mouse.current.leftButton.isPressed)
+        if (Mouse.current.leftButton.wasPressedThisFrame)
         {
             Shoot();
         }
+
+        if (Mouse.current.leftButton.wasReleasedThisFrame)
+        {
+            Destroy(flame.gameObject);
+            flame = null;
+        }
+
+
 
     }
 
@@ -41,8 +49,8 @@ public class Flamethrower : MonoBehaviour
         Debug.Log("SHOOT");
         
         GameObject flameGo = (GameObject)Instantiate(flamePrefab, firePoint.position, firePoint.rotation);
-        Flames flame = flameGo.GetComponent<Flames>();
-
+        flame = flameGo.GetComponent<Flames>();
+        flame.target = firePoint;
 
     }
 
