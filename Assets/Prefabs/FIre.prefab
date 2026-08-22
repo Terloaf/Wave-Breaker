@@ -27,8 +27,8 @@ Transform:
   m_GameObject: {fileID: 5383614382795733837}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.0000004768371, w: 1}
-  m_LocalPosition: {x: -4.4331098, y: -1.3499972, z: 0}
-  m_LocalScale: {x: 10.17, y: 0.5, z: 1}
+  m_LocalPosition: {x: -134.9142, y: -2.8, z: 0}
+  m_LocalScale: {x: 0.124662966, y: 0.15848118, z: 1.0088}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,8 +82,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -5
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 0.8113208, g: 0.26498812, b: 0, a: 1}
+  m_Sprite: {fileID: 7005439166288853653, guid: 487927877406e0c4fb8c7e3302026c71, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -104,3 +104,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bb62e2e3592fc14ea77c601826ef037, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Flames
+  target: {fileID: 0}
