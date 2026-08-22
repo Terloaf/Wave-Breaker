@@ -46,7 +46,7 @@ public class UnitStats : MonoBehaviour
         Bullet bullet = bulletGo.GetComponent<Bullet>();
 
         if (bullet != null)
-            bullet.seek(target);
+            bullet.Seek(target);
     }
 
     void UpdateTarget()

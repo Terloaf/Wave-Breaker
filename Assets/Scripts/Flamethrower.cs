@@ -1,47 +1,37 @@
 using UnityEditor;
 using UnityEngine;
-
+using UnityEngine.InputSystem;
 public class Flamethrower : MonoBehaviour
 {
     [Header("Stats")]
     public float range = 15f;
 
 
-    [Header("Use Bullets (default)")]
-    public GameObject bulletPrefab;
-    public float fireRate = 1f;
-    private float fireCountdown = 0f;
-
     [Header("Use Flames")]
-    public bool useFlamethrower = false;
-    public LineRenderer lineRenderer;
+    public GameObject flamePrefab;
+
+
 
     public Transform target;
     public string enemyTag = "Enemy";
 
     public Transform firePoint;
 
-    public MouseCursor mouse;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        if (target == null) return;
-
-        if (fireCountdown <= 0f)
+        if (Mouse.current.leftButton.isPressed)
         {
             Shoot();
-            fireCountdown = 1f / fireRate;
         }
-        fireCountdown -= Time.deltaTime;
+
     }
 
 
@@ -49,42 +39,12 @@ public class Flamethrower : MonoBehaviour
     void Shoot()
     {
         Debug.Log("SHOOT");
-        GameObject bulletGo = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        Bullet bullet = bulletGo.GetComponent<Bullet>();
+        
+        GameObject flameGo = (GameObject)Instantiate(flamePrefab, firePoint.position, firePoint.rotation);
+        Flames flame = flameGo.GetComponent<Flames>();
 
-        if (bullet != null)
-            bullet.seek(target);
-    }
-
-    void UpdateTarget()
-    {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
-        float shortestDistance = Mathf.Infinity;
-        GameObject nearestEnemy = null;
-
-
-        foreach (GameObject enemy in enemies)
-        {
-            float distanceToEnemy = Vector2.Distance(transform.position, enemy.transform.position);
-            if (distanceToEnemy < shortestDistance)
-            {
-                shortestDistance = distanceToEnemy;
-                nearestEnemy = enemy;
-            }
-        }
-
-        if (nearestEnemy != null && shortestDistance <= range)
-        {
-            target = nearestEnemy.transform;
-        }
 
     }
 
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawLine(transform.position, Input.mousePosition);
-    }
 }
 
