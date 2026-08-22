@@ -1,22 +1,27 @@
-using JetBrains.Annotations;
 using UnityEditor;
 using UnityEngine;
 
-public class UnitStats : MonoBehaviour
+public class Flamethrower : MonoBehaviour
 {
-    [Header ("Stats")]
+    [Header("Stats")]
     public float range = 15f;
-    
+
 
     [Header("Use Bullets (default)")]
     public GameObject bulletPrefab;
     public float fireRate = 1f;
     private float fireCountdown = 0f;
 
+    [Header("Use Flames")]
+    public bool useFlamethrower = false;
+    public LineRenderer lineRenderer;
+
     public Transform target;
     public string enemyTag = "Enemy";
-    
+
     public Transform firePoint;
+
+    public MouseCursor mouse;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -28,15 +33,17 @@ public class UnitStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (target == null) return;
 
-        if(fireCountdown <= 0f)
+        if (fireCountdown <= 0f)
         {
             Shoot();
             fireCountdown = 1f / fireRate;
         }
         fireCountdown -= Time.deltaTime;
     }
+
 
 
     void Shoot()
@@ -56,29 +63,28 @@ public class UnitStats : MonoBehaviour
         GameObject nearestEnemy = null;
 
 
-        foreach(GameObject enemy in enemies)
+        foreach (GameObject enemy in enemies)
         {
-            float distanceToEnemy = Vector2.Distance (transform.position, enemy.transform.position);
-            if(distanceToEnemy < shortestDistance)
+            float distanceToEnemy = Vector2.Distance(transform.position, enemy.transform.position);
+            if (distanceToEnemy < shortestDistance)
             {
                 shortestDistance = distanceToEnemy;
                 nearestEnemy = enemy;
             }
         }
 
-        if(nearestEnemy != null && shortestDistance <= range)
+        if (nearestEnemy != null && shortestDistance <= range)
         {
             target = nearestEnemy.transform;
         }
 
     }
 
-    private void OnDrawGizmosSelected()
+
+    private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, range);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawLine(transform.position, Input.mousePosition);
     }
-
-
-
 }
+
