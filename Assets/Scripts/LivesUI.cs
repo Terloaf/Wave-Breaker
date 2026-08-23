@@ -1,5 +1,7 @@
 using TMPro;
+using Unity.VectorGraphics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class LivesUI : MonoBehaviour
 {
@@ -8,5 +10,10 @@ public class LivesUI : MonoBehaviour
     private void Update()
     {
         livesText.text = "Lives " + PlayerStats.Lives; 
+
+        if(PlayerStats.Lives <= 0)
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
     }
 }
