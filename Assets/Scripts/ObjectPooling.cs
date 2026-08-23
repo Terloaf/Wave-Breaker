@@ -42,4 +42,14 @@ public class ObjectPooling : MonoBehaviour
         return lh;
 
     }
+    public GameObject[] GetBoatPooled()
+    {
+        GameObject[] boat = new GameObject[amountToPool];
+        for (int i = 0; i < amountToPool; i++)
+        {
+            boat[i] = unitsPooled[i + amountToPool];
+        }
+        return boat;
+
+    }
 }

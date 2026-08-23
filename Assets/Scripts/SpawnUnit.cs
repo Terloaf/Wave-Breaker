@@ -34,7 +34,12 @@ public class SpawnUnit : MonoBehaviour
         {
             unitToSpawn = ObjectPooling.instance.GetLighthousePooled();
         }
+        if (unitnum == 1)
+        {
+            unitToSpawn = ObjectPooling.instance.GetBoatPooled();
+        }
         else return;
+
     }
 
     void AddUnit()

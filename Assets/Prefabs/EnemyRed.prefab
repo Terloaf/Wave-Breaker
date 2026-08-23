@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
   speed: 5
-  health: 3
+  health: 10
 --- !u!58 &823297664053764433
 CircleCollider2D:
   m_ObjectHideFlags: 0
