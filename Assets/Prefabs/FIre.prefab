@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4027676691778177192}
   - component: {fileID: 7693927589118934822}
   - component: {fileID: 6020672597999231301}
+  - component: {fileID: -7467906614107755756}
   m_Layer: 0
   m_Name: FIre
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 5383614382795733837}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.0000004768371, w: 1}
-  m_LocalPosition: {x: -134.9142, y: -2.8, z: 0}
+  m_LocalPosition: {x: -134.9142, y: -2.58, z: 0}
   m_LocalScale: {x: 0.124662966, y: 0.15848118, z: 1.0088}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -105,3 +106,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Flames
   target: {fileID: 0}
+  damage: 2
+--- !u!70 &-7467906614107755756
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5383614382795733837}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 10.8791065, y: -0.015871897}
+  m_Size: {x: 31.681015, y: 10.0420475}
+  m_Direction: 1

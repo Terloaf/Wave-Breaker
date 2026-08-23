@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -6,7 +7,7 @@ public class Flamethrower : MonoBehaviour
     [Header("Stats")]
     public float range = 15f;
 
-
+    public int damage = 2;
     [Header("Use Flames")]
     public GameObject flamePrefab;
 
@@ -17,6 +18,8 @@ public class Flamethrower : MonoBehaviour
 
     public Transform firePoint;
     public Flames flame;
+
+    
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -44,6 +47,7 @@ public class Flamethrower : MonoBehaviour
 
 
 
+
     void Shoot()
     {
         Debug.Log("SHOOT");
@@ -53,6 +57,8 @@ public class Flamethrower : MonoBehaviour
         flame.target = firePoint;
 
     }
+
+
 
 }
 

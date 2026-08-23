@@ -1,9 +1,12 @@
 using UnityEngine;
-using System.Collections''
+using System.Collections;
 public class GameStateManager : MonoBehaviour
 {
+    private bool gameEnded = false;
+    
     private void Update()
     {
+        if(gameEnded) return;
         if (PlayerStats.Lives <= 0)
         {
             EndGame();
@@ -12,6 +15,6 @@ public class GameStateManager : MonoBehaviour
 
     void EndGame()
     {
-
+        gameEnded = true;
     }
 }
