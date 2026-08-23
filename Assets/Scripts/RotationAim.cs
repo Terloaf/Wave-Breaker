@@ -30,7 +30,7 @@ public class RotationAim : MonoBehaviour
         }
         else if (zRotation <= 0)
         {
-            flamePrefab.layer = -2;
+            flamePrefab.layer = 0;
         }
 
 
