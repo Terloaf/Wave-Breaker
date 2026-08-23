@@ -1,11 +1,12 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 public class LivesUI : MonoBehaviour
 {
-    public Text livesText;
+    public TextMeshProUGUI livesText;
 
     private void Update()
     {
-        livesText.text = PlayerStats.Lives.ToString();
+        livesText.text = "Lives " + PlayerStats.Lives; 
     }
 }
